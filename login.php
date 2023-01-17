@@ -1,3 +1,32 @@
+<?php
+
+require 'functions.php';
+
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // cek apakah ada username di database
+    $result = mysqli_query(
+        $conn,
+        "SELECT * FROM users WHERE username = '$username'"
+    );
+
+    if (mysqli_num_rows($result) === 1) {
+        // kalo ada usernamenya, cek password
+        // ambil data password di database
+        $passwordInDb = mysqli_fetch_assoc($result);
+
+        if (password_verify($password, $passwordInDb)) {
+            header('Location: index.html');
+            exit();
+        }
+    }
+
+    $error = true;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,6 +52,9 @@
     <title>Log In</title>
   </head>
   <body>
+    <?php if (isset($error)): ?>
+      <p>username / password salah</p>
+    <?php endif; ?>
     <div class="login-page">
       <div class="form">
         <img src="src/assets/logo.svg" class="logo-login" alt="logo" />
@@ -38,9 +70,9 @@
           </p>
         </form>
         <form class="login-form">
-          <input type="text" placeholder="username" />
-          <input type="password" placeholder="password" />
-          <button>login</button>
+          <input type="text" placeholder="username" name="username" />
+          <input type="password" placeholder="password" name="password" />
+          <button type="submit" name="login">login</button>
           <p class="message">
             Not registered?
             <a href="/web-olshop/register.php">Create an account</a>
