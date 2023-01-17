@@ -1,3 +1,19 @@
+<?php
+
+require 'functions.php';
+
+if (isset($_POST['register'])) {
+    if (registrasi($_POST) > 0) {
+        echo "<script>
+        alert('user baru berhasil ditambahkan!');
+      </script>";
+    } else {
+        echo mysqli_error($conn);
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,7 +43,7 @@
       <div class="form">
         <img src="src/assets/logo.svg" class="logo-login" alt="logo" />
         <h1 class="login-title">Create New Account</h1>
-        <form class="register-form" method="" action="">
+        <form class="register-form" method="POST" action="">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">
               Email address
@@ -45,6 +61,7 @@
           <input type="text" placeholder="username" name="username" />
           <input type="email" placeholder="email" name="email" />
           <input type="password" placeholder="password" name="password" />
+           <input type="password" placeholder="confirm password" name="confirmPassword" />
           <button>create</button>
           <p class="message">
             Already registered?
@@ -54,7 +71,7 @@
         <form class="login-form">
           <input type="text" placeholder="username" />
           <input type="password" placeholder="password" />
-          <button>Register</button>
+          <button name="register" type="submit">Register</button>
           <p class="message">
             Have an account?
             <a href="/web-olshop/login.php">Sign In</a>

@@ -27,7 +27,7 @@
       <div class="form">
         <img src="src/assets/logo.svg" class="logo-login" alt="logo" />
         <h1 class="login-title">Log In</h1>
-        <form class="register-form" method="" action="">
+        <form class="register-form" method="POST" action="">
           <input type="text" placeholder="username" name="username" />
           <input type="password" placeholder="password" name="password" />
           <input type="text" placeholder="email address" />
