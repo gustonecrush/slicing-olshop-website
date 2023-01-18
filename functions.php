@@ -61,7 +61,7 @@ function registrasi($data)
     // tambahkan userbaru ke database
     mysqli_query(
         $conn,
-        "INSERT INTO users VALUES('', '$username', '$password')"
+        "INSERT INTO users (id, username, email, password) VALUES(0, '$username', '$email', '$password')"
     );
 
     return mysqli_affected_rows($conn);
