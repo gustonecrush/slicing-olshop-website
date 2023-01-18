@@ -22,6 +22,8 @@ if (isset($_POST['login'])) {
         if (password_verify($password, $passwordInDb['password'])) {
             // set session
             $_SESSION['login'] = true;
+            $_SESSION['username'] = $username;
+            $_SESSION["loginIsSuccess"] = true;
 
             header('Location: /web-olshop/dashboard.php');
             exit();

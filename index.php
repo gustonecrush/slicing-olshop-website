@@ -11,6 +11,23 @@ session_start();
     <title>Totebag Shop</title>
   </head>
   <body>
+
+  <?php if ($_SESSION['logoutIsSuccess']) {
+    echo "
+        <script>
+                        Swal.fire({
+                            title: 'Logout is success',
+                            text: 'Thanks for shopping!',
+                            icon: 'success',
+                            confirmButtonColor: '#1f1f1f'
+                        })
+                    </script>
+        ";
+    $_SESSION['logoutIsSuccess'] = false;
+    $_SESSION = [];
+    session_destroy();
+} ?>
+
     <!-- ====================== NAVBAR ====================== -->
     <?php include 'components/navbar.php'; ?>
 

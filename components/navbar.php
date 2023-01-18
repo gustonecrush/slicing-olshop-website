@@ -46,10 +46,10 @@
                 </li>
               ";
             } else {
-              echo "
+                echo "
                   <li class='nav-item me-3'>
                   <a
-                    class='nav-link btn-custom'
+                    class='nav-link btn-custom log-in'
                     href='/web-olshop/dashboard.php'
                   >
                     Dashboard

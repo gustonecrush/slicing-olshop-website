@@ -50,12 +50,13 @@ body {
 
 .btn-custom-dark {
   background: #1f1f1f;
-  color: #fff;
+  color: #fff !important;
 }
 
-.btn-custom-dark:hover {
+.btn-custom-dark:hover,
+.btn-custom-dark:active {
   background: rgba(31, 31, 31, 0.9);
-  color: #fff;
+  color: #fff !important;
 }
 
 .learn-more {

@@ -30,6 +30,10 @@ if (!isset($_SESSION['login'])) {
     <!-- Custom styles for this template-->
     <link href="src/styles/global.css" rel="stylesheet">
     <link href="src/styles/admin.min.css" rel="stylesheet">
+
+    <!-- ====================== SWEETALERT ====================== -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         .bg-gradient-primary {
         background: rgba(31, 31, 31);
@@ -63,6 +67,20 @@ if (!isset($_SESSION['login'])) {
 
 <body id="page-top">
 
+<?php if ($_SESSION['loginIsSuccess']) {
+    echo "
+        <script>
+                        Swal.fire({
+                            title: 'Login is success',
+                            text: 'Enjoy your shopping!',
+                            icon: 'success',
+                            confirmButtonColor: '#1f1f1f'
+                        })
+                    </script>
+        ";
+    $_SESSION['loginIsSuccess'] = false;
+} ?>
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -83,9 +101,9 @@ if (!isset($_SESSION['login'])) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/web-olshop/index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Homepage</span></a>
             </li>
 
             <!-- Divider -->
@@ -145,7 +163,9 @@ if (!isset($_SESSION['login'])) {
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION[
+                                    'username'
+                                ] ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="src/assets/undraw_profile.svg">
                             </a>

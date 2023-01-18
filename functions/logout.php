@@ -1,9 +1,9 @@
 <?php
 
 session_start();
-$_SESSION = [];
+
 session_unset();
-session_destroy();
+$_SESSION["logoutIsSuccess"] = true;
 
 header("Location: /web-olshop/index.php")
 
