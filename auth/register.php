@@ -30,6 +30,7 @@ if (isset($_POST['register'])) {
     // JIKA TIDAK BERHASIL MENAMBAHKAN USER BARU, LEMPAR USER KEHALAMAN UTAMA 
     } else {
 
+        $_SESSION["registerError"] = true;
         header('Location: /web-olshop/');
 
     }

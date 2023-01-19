@@ -28,12 +28,12 @@
 
         <!-- ============== INPUT USERNAME ============== -->
         <div class="mb-3">
-          <input type="text" placeholder="username" name="username" class="form-control">
+          <input type="text" placeholder="username" name="username" class="form-control" required>
         </div>
 
         <!-- ============== INPUT PASSWORD ============== -->
         <div class="mb-3">
-          <input type="password" placeholder="password" name="password" class="form-control">
+          <input type="password" placeholder="password" name="password" class="form-control" required>
         </div>
 
         <!-- =============== BUTTON LOGIN =============== -->

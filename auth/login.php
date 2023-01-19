@@ -44,12 +44,19 @@ if (isset($_POST['login'])) {
             header('Location: /web-olshop/dashboard.php');
 
             exit();
+        } else {
+
+            // LEMPAR USER KE HALAMAN UTAMA
+            $_SESSION["loginError"] = true;
+            header('Location: /web-olshop/');
+
         }
 
     }
 
-    // JIKA USERNAME TIDAK DITEMUKAN, BUAT VARIABLE ERROR = TRUE
-    $error = true;
+    // LEMPAR USER KE HALAMAN UTAMA
+    $_SESSION["loginError"] = true;
+    header('Location: /web-olshop/');
 
 }
 

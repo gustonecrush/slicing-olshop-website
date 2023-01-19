@@ -28,22 +28,22 @@
 
         <!-- ============== INPUT USERNAME ============== -->
         <div class="mb-3">
-          <input type="text" placeholder="username" name="username" class="form-control">
+          <input type="text" placeholder="username" name="username" class="form-control" required>
         </div>
 
         <!-- =============== INPUT EMAIL ================ -->
         <div class="mb-3">
-          <input type="email" placeholder="email" name="email" class="form-control">
+          <input type="email" placeholder="email" name="email" class="form-control" required>
         </div>
 
         <!-- ============== INPUT PASSWORD ============== -->
         <div class="mb-3">
-          <input type="password" placeholder="password" name="password" class="form-control">
+          <input type="password" placeholder="password" name="password" class="form-control" required>
         </div>
 
         <!-- =========== INPUT CONFIRM PASSWORD ========= -->
         <div class="mb-3">
-          <input type="password" placeholder="confirm password" name="confirmPassword" class="form-control">
+          <input type="password" placeholder="confirm password" name="confirmPassword" class="form-control" required>
         </div>
 
         <!-- ============== BUTTON REGISTER ============= -->

@@ -1,50 +1,55 @@
-<?php 
+<?php
 
 // MEMULAI SESSION. AGAR DAPAT MENGGUNAKAN, MEMBUAT, ATAU MENGHAUNCURKAN SESSION
-session_start();
-
-?>
+session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
   <head>
+
     <!-- =========== IMPORT COMPONENT HEAD =========== -->
     <?php include 'components/head.php'; ?>
 
+    <!--=============== REMIX ICONS ===============-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
     <!-- =================== TITLE =================== -->
     <title>Totebag Shop</title>
+
   </head>
 
   <body>
 
-  <?php 
-  
-    // MELAKUKAN PENGECEKAN APAKAH ADA SESSION LOGOUT
-    if (isset($_SESSION['logoutIsSuccess'])) {
+  <?php  
 
-       // JIKA ADA BERARTI USER LOGOUT
-       // DAN TAMPILKAN PESAN BERIKUT JIKA USER BERHASIL LOGIN
-        echo "
-            <script>
-                Swal.fire({
-                  title: 'Logout is success',
-                  text: 'Thanks for shopping!',
-                  icon: 'success',
-                  confirmButtonColor: '#1f1f1f'
-                })
-            </script>
-        ";
+      // MELAKUKAN PENGECEKAN APAKAH ADA SESSION LOGOUT
+      if (isset($_SESSION['logoutIsSuccess'])) {
+          // JIKA ADA BERARTI USER LOGOUT
+          // DAN TAMPILKAN PESAN BERIKUT JIKA USER BERHASIL LOGIN
+          echo "
+                    <script>
+                        Swal.fire({
+                          title: 'Logout is success',
+                          text: 'Thanks for shopping!',
+                          icon: 'success',
+                          confirmButtonColor: '#1f1f1f'
+                        })
+                    </script>
+                ";
 
-        // HAPUS SESSION LOGOUT
-        $_SESSION['logoutIsSuccess'] = false;
-        $_SESSION = [];
+          // HAPUS SESSION LOGOUT
+          $_SESSION['logoutIsSuccess'] = false;
+          $_SESSION = [];
 
-        // HANCURKAN SESSION
-        session_destroy();
-    } 
-
-  ?>
+          // HANCURKAN SESSION
+          session_destroy();
+      } 
+      
+    ?>
 
     <!-- =========== IMPORT COMPONENT NAVBAR =========== -->
     <?php include 'components/navbar.php'; ?>
@@ -78,6 +83,78 @@ session_start();
             <a class="nav-link ms-5 learn-more" href="#">Learn More →</a>
           </span>
         </article>
+      </section>
+
+      <!-- ===================== PRODUCTS ==================== -->
+      <section class="product section container" id="products">
+        <h1 class="title" data-aos="zoom-in-up" data-aos-duration="500">Check Out Our Products</h1>
+
+        <p class="product__description" data-aos="zoom-in-up" data-aos-duration="600">
+          Here are some selected plants from our showroom, all are in excellent
+          shape and has a long life span. Buy and enjoy best quality.
+        </p>
+
+        <div class="product__container container grid">
+          <article class="product__card" data-aos="zoom-in-up">
+            <div class="product__circle"></div>
+
+            <img src="src/assets/img/product1.png" alt="" class="product__img" />
+
+            <h3 class="product__title">Cacti Plant</h3>
+            <span class="product__price">IDR 134,000</span>
+
+          </article>
+
+          <article class="product__card" data-aos="zoom-in-up">
+            <div class="product__circle"></div>
+
+            <img src="src/assets/img/product2.png" alt="" class="product__img" />
+
+            <h3 class="product__title">Cactus Plant</h3>
+            <span class="product__price">IDR 149,000</span>
+
+          </article>
+
+          <article class="product__card" data-aos="zoom-in-up">
+            <div class="product__circle"></div>
+
+            <img src="src/assets/img/product3.png" alt="" class="product__img" />
+
+            <h3 class="product__title">Aloe Vera Plant</h3>
+            <span class="product__price">IDR 94,000</span>
+
+          </article>
+
+          <article class="product__card" data-aos="zoom-in-up">
+            <div class="product__circle"></div>
+
+            <img src="src/assets/img/product4.png" alt="" class="product__img" />
+
+            <h3 class="product__title">Succulent Plant</h3>
+            <span class="product__price">IDR 189,000</span>
+
+          </article>
+
+          <article class="product__card" data-aos="zoom-in-up">
+            <div class="product__circle"></div>
+
+            <img src="src/assets/img/product5.png" alt="" class="product__img" />
+
+            <h3 class="product__title">Succulent Plant</h3>
+            <span class="product__price">IDR 124,000</span>
+
+          </article>
+
+          <article class="product__card" data-aos="zoom-in-up">
+            <div class="product__circle"></div>
+
+            <img src="src/assets/img/product6.png" alt="" class="product__img" />
+
+            <h3 class="product__title">Green Plant</h3>
+            <span class="product__price">IDR 172,000</span>
+
+          </article>
+        </div>
       </section>
 
       <!-- ===================== PRODUCTS ==================== -->
@@ -195,16 +272,67 @@ session_start();
     <!-- =========== IMPORT COMPONENT SCRIPTS ========== -->
     <?php include 'components/scripts.php'; ?>
 
-    <?php 
-
-      // CEK APAKAH SESSION LOGIN TIDAK ADA, JIKA TIDAK ADA
-      // MAKA IMPORT MODAL AGAR USER DAPAT MELAKUKAN LOGIN / REGISTER
-      if (!isset($_SESSION['login'])) {
+    <?php // CEK APAKAH SESSION LOGIN TIDAK ADA, JIKA TIDAK ADA
+// CEK APAKAH SESSION LOGIN TIDAK ADA, JIKA TIDAK ADA
+// MAKA IMPORT MODAL AGAR USER DAPAT MELAKUKAN LOGIN / REGISTER
+    if (!isset($_SESSION['login'])) {
         include 'components/modal_login.php';
         include 'components/modal_register.php';
-      }
-    
+    } ?>
+
+    <?php 
+
+        // MELAKUKAN PENGECEKAN APAKAH ADA ERROR YANG DIBUAT APABILA LOGIN ERROR
+        if (isset($_SESSION['loginError'])) {
+            // JIKA ADA BERARTI ADA KESALAHAN INPUT USERNAME / PASSWORD
+            // DAN TAMPILKAN PESAN BERIKUT JIKA USER GAGAL
+            echo "
+                        <script>
+                            Swal.fire({
+                              title: 'Login is failed',
+                              text: 'Username or Password is wrong!',
+                              icon: 'error',
+                              confirmButtonColor: '#1f1f1f'
+                            })
+                        </script>
+                    ";
+
+            // HAPUS SESSION LOGOUT
+            $_SESSION['loginError'] = false;
+            $_SESSION = [];
+
+            // HANCURKAN SESSION
+            session_destroy();
+        } 
+        
     ?>
+
+    <?php
+
+      // MELAKUKAN PENGECEKAN APAKAH ADA ERROR YANG DIBUAT APABILA REGISTER ERROR
+      if (isset($_SESSION['registerError'])) {
+              // JIKA ADA BERARTI ADA KESALAHAN PADA SAAT PROSES REGISTRASI
+              // DAN TAMPILKAN PESAN BERIKUT JIKA USER GAGAL
+              echo "
+                      <script>
+                          Swal.fire({
+                            title: 'Register is failed',
+                            text: 'Username or Email has been taken!',
+                            icon: 'error',
+                            confirmButtonColor: '#1f1f1f'
+                          })
+                      </script>
+                  ";
+
+              // HAPUS SESSION LOGOUT
+              $_SESSION['registerError'] = false;
+              $_SESSION = [];
+
+              // HANCURKAN SESSION
+              session_destroy();
+          } 
+
+      ?>
 
   </body>
 
