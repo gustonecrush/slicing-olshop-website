@@ -1,22 +1,30 @@
-<?php 
+<?php
 
-session_start();
+// MEMULAI SESSION. AGAR DAPAT MENGGUNAKAN, MEMBUAT, ATAU MENGHAUNCURKAN SESSION
+session_start(); 
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
+    <!-- =========== IMPORT COMPONENT HEAD =========== -->
     <?php include 'components/head.php'; ?>
+    
+    <!-- =================== TITLE =================== -->
     <title>About - Totebag Shop</title>
   </head>
+
   <body>
-    <!-- ====================== NAVBAR ====================== -->
+
+    <!-- =========== IMPORT COMPONENT NAVBAR =========== -->
     <?php include 'components/navbar.php'; ?>
 
-    <!-- ====================== MAIN ====================== -->
+    <!-- ==================== MAIN ===================== -->
     <main class="main position-relative about">
-      <!-- ====================== JUMBOTRON ====================== -->
+
+      <!-- ==================== JUMBOTRON ==================== -->
       <section class="jumbotron d-flex flex-row justify-content-between align-items-center container">
         <img
           src="src/assets/jumbotron_about.png"
@@ -45,17 +53,24 @@ session_start();
           </p>
         </article>
       </section>
+      
     </main>
 
-    <!-- ====================== JS ====================== -->
+    <!-- =========== IMPORT COMPONENT SCRIPTS ========== -->
     <?php include 'components/scripts.php'; ?>
 
-    <!-- ====================== MODAL AUTH ====================== -->
+    <!-- ===== IMPORT MODAL AUTH (LOGIN / REGISTER) ==== -->
     <?php 
+
+      // CEK APAKAH SESSION LOGIN TIDAK ADA, JIKA TIDAK ADA
+      // MAKA IMPORT MODAL AGAR USER DAPAT MELAKUKAN LOGIN / REGISTER
       if (!isset($_SESSION['login'])) {
-        include 'components/modal_login.php';
-        include 'components/modal_register.php';
-      }
+          include 'components/modal_login.php';
+          include 'components/modal_register.php';
+      } 
+    
     ?>
+
   </body>
+
 </html>

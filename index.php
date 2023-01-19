@@ -1,39 +1,58 @@
 <?php 
 
+// MEMULAI SESSION. AGAR DAPAT MENGGUNAKAN, MEMBUAT, ATAU MENGHAUNCURKAN SESSION
 session_start();
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
+    <!-- =========== IMPORT COMPONENT HEAD =========== -->
     <?php include 'components/head.php'; ?>
+
+    <!-- =================== TITLE =================== -->
     <title>Totebag Shop</title>
   </head>
+
   <body>
 
-  <?php if ($_SESSION['logoutIsSuccess']) {
-    echo "
-        <script>
-                        Swal.fire({
-                            title: 'Logout is success',
-                            text: 'Thanks for shopping!',
-                            icon: 'success',
-                            confirmButtonColor: '#1f1f1f'
-                        })
-                    </script>
-        ";
-    $_SESSION['logoutIsSuccess'] = false;
-    $_SESSION = [];
-    session_destroy();
-} ?>
+  <?php 
+  
+    // MELAKUKAN PENGECEKAN APAKAH ADA SESSION LOGOUT
+    if (isset($_SESSION['logoutIsSuccess'])) {
 
-    <!-- ====================== NAVBAR ====================== -->
+       // JIKA ADA BERARTI USER LOGOUT
+       // DAN TAMPILKAN PESAN BERIKUT JIKA USER BERHASIL LOGIN
+        echo "
+            <script>
+                            Swal.fire({
+                                title: 'Logout is success',
+                                text: 'Thanks for shopping!',
+                                icon: 'success',
+                                confirmButtonColor: '#1f1f1f'
+                            })
+                        </script>
+            ";
+
+        // HAPUS SESSION LOGOUT
+        $_SESSION['logoutIsSuccess'] = false;
+        $_SESSION = [];
+
+        // HANCURKAN SESSION
+        session_destroy();
+    } 
+
+  ?>
+
+    <!-- =========== IMPORT COMPONENT NAVBAR =========== -->
     <?php include 'components/navbar.php'; ?>
 
-    <!-- ====================== MAIN ====================== -->
+    <!-- ==================== MAIN ===================== -->
     <main class="main position-relative">
-      <!-- ====================== JUMBOTRON ====================== -->
+
+      <!-- ==================== JUMBOTRON ==================== -->
       <section class="jumbotron d-flex flex-row justify-content-between align-items-center container">
         <img
           src="src/assets/jumbotron_image.png"
@@ -61,7 +80,7 @@ session_start();
         </article>
       </section>
 
-      <!-- ====================== PRODUCTS ====================== -->
+      <!-- ===================== PRODUCTS ==================== -->
       <section class="products__section container">
         <h1 class="title">Most Popular Totebag 💗</h1>
         <article class="d-flex flex-wrap mt-5 justify-content-evenly">
@@ -163,17 +182,30 @@ session_start();
         </article>
       </section>
 
+      <!-- ================= BACKGROUND BLACK ================ -->
       <div class="black-bg"></div>
+
+      <!-- ======================= FOOTER ==================== -->
+      <footer class="footer">
+        Copyright 2023. All Rights Reserved Totebag by Arni.
+      </footer>
+
     </main>
 
+    <!-- =========== IMPORT COMPONENT SCRIPTS ========== -->
+    <?php include 'components/scripts.php'; ?>
+
     <?php 
+
+      // CEK APAKAH SESSION LOGIN TIDAK ADA, JIKA TIDAK ADA
+      // MAKA IMPORT MODAL AGAR USER DAPAT MELAKUKAN LOGIN / REGISTER
       if (!isset($_SESSION['login'])) {
         include 'components/modal_login.php';
         include 'components/modal_register.php';
       }
+    
     ?>
 
-    <!-- ====================== JS ====================== -->
-    <?php include 'components/scripts.php'; ?>
   </body>
+  
 </html>
