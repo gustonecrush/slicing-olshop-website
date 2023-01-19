@@ -291,7 +291,7 @@ body {
   margin: auto;
 }
 .product__img {
-  width: 160px;
+  width: 250px;
 }
 .product__circle {
   width: 110px;
@@ -310,4 +310,9 @@ body {
   justify-content: center;
   margin-bottom: -6.5rem;
   margin-top: 4rem;
+}
+
+.footer-dark {
+  background: #1f1f1f;
+  padding: 2rem;
 }

@@ -66,7 +66,7 @@
                 echo "
                   <li class='nav-item me-3'>
                   <a
-                    class='nav-link btn-custom log-in'
+                    class='nav-link btn-custom'
                     href='/web-olshop/dashboard.php'
                   >
                     Dashboard

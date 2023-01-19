@@ -1,9 +1,7 @@
 <?php
 
 // MEMULAI SESSION. AGAR DAPAT MENGGUNAKAN, MEMBUAT, ATAU MENGHAUNCURKAN SESSION
-session_start(); 
-
-?>
+session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,6 +51,36 @@ session_start();
           </p>
         </article>
       </section>
+
+      <!-- ==================== PROFILE ==================== -->
+      <section class="product section container" id="products" style="margin-bottom: 3rem;">
+        <h1 class="title" data-aos="zoom-in-up" data-aos-duration="500">Profile of Website Owner</h1>
+
+        <div class="card w-75 mt-3 p-4">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center">
+              <img src="src/assets/arni.jpeg" width="250" style="border-radius: 25px" />
+              <h5 class="card-title mt-3">Arni Eriza</h5>
+            </div>
+           
+            <ul class="list-group">
+              <li class="list-group-item">Nama : Arni Eriza</li>
+              <li class="list-group-item">Kelas : 5NG</li>
+              <li class="list-group-item">Npm : 062030601542</li>
+              <li class="list-group-item">Email : arnieriza62@gmail.com</li>
+              <li class="list-group-item">Jurusan : Administrasi Bisnis</li>
+              <li class="list-group-item">Universitas : Politeknik Negeri Sriwijaya</li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ======================= FOOTER ==================== -->
+      <footer class="footer footer-dark">
+        Copyright 2023. All Rights Reserved Totebag by Arni.
+      </footer>
+
       
     </main>
 
@@ -60,16 +88,14 @@ session_start();
     <?php include 'components/scripts.php'; ?>
 
     <!-- ===== IMPORT MODAL AUTH (LOGIN / REGISTER) ==== -->
-    <?php 
-
-      // CEK APAKAH SESSION LOGIN TIDAK ADA, JIKA TIDAK ADA
-      // MAKA IMPORT MODAL AGAR USER DAPAT MELAKUKAN LOGIN / REGISTER
-      if (!isset($_SESSION['login'])) {
-          include 'components/modal_login.php';
-          include 'components/modal_register.php';
-      } 
-    
-    ?>
+    <?php
+// CEK APAKAH SESSION LOGIN TIDAK ADA, JIKA TIDAK ADA
+// CEK APAKAH SESSION LOGIN TIDAK ADA, JIKA TIDAK ADA
+?>// MAKA IMPORT MODAL AGAR USER DAPAT MELAKUKAN LOGIN / REGISTER
+    if (!isset($_SESSION['login'])) {
+        include 'components/modal_login.php';
+        include 'components/modal_register.php';
+    } ?>
 
   </body>
 

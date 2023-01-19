@@ -24,22 +24,22 @@ session_start(); ?>
 
   <body>
 
-  <?php  
-
+  <?php 
+  
       // MELAKUKAN PENGECEKAN APAKAH ADA SESSION LOGOUT
       if (isset($_SESSION['logoutIsSuccess'])) {
           // JIKA ADA BERARTI USER LOGOUT
           // DAN TAMPILKAN PESAN BERIKUT JIKA USER BERHASIL LOGIN
           echo "
-                    <script>
-                        Swal.fire({
-                          title: 'Logout is success',
-                          text: 'Thanks for shopping!',
-                          icon: 'success',
-                          confirmButtonColor: '#1f1f1f'
-                        })
-                    </script>
-                ";
+                        <script>
+                            Swal.fire({
+                              title: 'Logout is success',
+                              text: 'Thanks for shopping!',
+                              icon: 'success',
+                              confirmButtonColor: '#1f1f1f'
+                            })
+                        </script>
+                    ";
 
           // HAPUS SESSION LOGOUT
           $_SESSION['logoutIsSuccess'] = false;
@@ -47,9 +47,9 @@ session_start(); ?>
 
           // HANCURKAN SESSION
           session_destroy();
-      } 
-      
-    ?>
+      }
+    
+   ?>
 
     <!-- =========== IMPORT COMPONENT NAVBAR =========== -->
     <?php include 'components/navbar.php'; ?>
@@ -90,7 +90,7 @@ session_start(); ?>
         <h1 class="title" data-aos="zoom-in-up" data-aos-duration="500">Check Out Our Products</h1>
 
         <p class="product__description" data-aos="zoom-in-up" data-aos-duration="600">
-          Here are some selected plants from our showroom, all are in excellent
+          Here are some selected bags from our showroom, all are in excellent
           shape and has a long life span. Buy and enjoy best quality.
         </p>
 
@@ -100,7 +100,7 @@ session_start(); ?>
 
             <img src="src/assets/img/product1.png" alt="" class="product__img" />
 
-            <h3 class="product__title">Cacti Plant</h3>
+            <h3 class="product__title">Exsport Scholar Laptop Backpack</h3>
             <span class="product__price">IDR 134,000</span>
 
           </article>
@@ -110,7 +110,7 @@ session_start(); ?>
 
             <img src="src/assets/img/product2.png" alt="" class="product__img" />
 
-            <h3 class="product__title">Cactus Plant</h3>
+            <h3 class="product__title">Exsport City Strolling Sling Bag</h3>
             <span class="product__price">IDR 149,000</span>
 
           </article>
@@ -120,7 +120,7 @@ session_start(); ?>
 
             <img src="src/assets/img/product3.png" alt="" class="product__img" />
 
-            <h3 class="product__title">Aloe Vera Plant</h3>
+            <h3 class="product__title">Exsport Reround Mini Sling Bag </h3>
             <span class="product__price">IDR 94,000</span>
 
           </article>
@@ -130,7 +130,7 @@ session_start(); ?>
 
             <img src="src/assets/img/product4.png" alt="" class="product__img" />
 
-            <h3 class="product__title">Succulent Plant</h3>
+            <h3 class="product__title">Exsport Basic Square Tote Bag L</h3>
             <span class="product__price">IDR 189,000</span>
 
           </article>
@@ -140,7 +140,7 @@ session_start(); ?>
 
             <img src="src/assets/img/product5.png" alt="" class="product__img" />
 
-            <h3 class="product__title">Succulent Plant</h3>
+            <h3 class="product__title">Exsport Fast Track Two Way Carry</h3>
             <span class="product__price">IDR 124,000</span>
 
           </article>
@@ -150,7 +150,7 @@ session_start(); ?>
 
             <img src="src/assets/img/product6.png" alt="" class="product__img" />
 
-            <h3 class="product__title">Green Plant</h3>
+            <h3 class="product__title">Exsport Basic Cubical Sling Pouch</h3>
             <span class="product__price">IDR 172,000</span>
 
           </article>
@@ -272,21 +272,23 @@ session_start(); ?>
     <!-- =========== IMPORT COMPONENT SCRIPTS ========== -->
     <?php include 'components/scripts.php'; ?>
 
-    <?php // CEK APAKAH SESSION LOGIN TIDAK ADA, JIKA TIDAK ADA
-// CEK APAKAH SESSION LOGIN TIDAK ADA, JIKA TIDAK ADA
-// MAKA IMPORT MODAL AGAR USER DAPAT MELAKUKAN LOGIN / REGISTER
-    if (!isset($_SESSION['login'])) {
-        include 'components/modal_login.php';
-        include 'components/modal_register.php';
-    } ?>
+    <?php
+
+      // CEK APAKAH SESSION LOGIN TIDAK ADA, JIKA TIDAK ADA
+      // MAKA IMPORT MODAL AGAR USER DAPAT MELAKUKAN LOGIN / REGISTER
+      if (!isset($_SESSION['login'])) {
+          include 'components/modal_login.php';
+          include 'components/modal_register.php';
+      } 
+    
+    ?>
 
     <?php 
-
-        // MELAKUKAN PENGECEKAN APAKAH ADA ERROR YANG DIBUAT APABILA LOGIN ERROR
-        if (isset($_SESSION['loginError'])) {
-            // JIKA ADA BERARTI ADA KESALAHAN INPUT USERNAME / PASSWORD
-            // DAN TAMPILKAN PESAN BERIKUT JIKA USER GAGAL
-            echo "
+      // MELAKUKAN PENGECEKAN APAKAH ADA ERROR YANG DIBUAT APABILA LOGIN ERROR
+      if (isset($_SESSION['loginError'])) {
+        // JIKA ADA BERARTI ADA KESALAHAN INPUT USERNAME / PASSWORD
+        // DAN TAMPILKAN PESAN BERIKUT JIKA USER GAGAL
+        echo "
                         <script>
                             Swal.fire({
                               title: 'Login is failed',
@@ -297,23 +299,20 @@ session_start(); ?>
                         </script>
                     ";
 
-            // HAPUS SESSION LOGOUT
-            $_SESSION['loginError'] = false;
-            $_SESSION = [];
+        // HAPUS SESSION LOGOUT
+        $_SESSION['loginError'] = false;
+        $_SESSION = [];
 
-            // HANCURKAN SESSION
-            session_destroy();
-        } 
-        
-    ?>
+        // HANCURKAN SESSION
+        session_destroy();
+    } ?>
 
-    <?php
-
+    <?php 
       // MELAKUKAN PENGECEKAN APAKAH ADA ERROR YANG DIBUAT APABILA REGISTER ERROR
       if (isset($_SESSION['registerError'])) {
-              // JIKA ADA BERARTI ADA KESALAHAN PADA SAAT PROSES REGISTRASI
-              // DAN TAMPILKAN PESAN BERIKUT JIKA USER GAGAL
-              echo "
+        // JIKA ADA BERARTI ADA KESALAHAN PADA SAAT PROSES REGISTRASI
+        // DAN TAMPILKAN PESAN BERIKUT JIKA USER GAGAL
+        echo "
                       <script>
                           Swal.fire({
                             title: 'Register is failed',
@@ -324,15 +323,13 @@ session_start(); ?>
                       </script>
                   ";
 
-              // HAPUS SESSION LOGOUT
-              $_SESSION['registerError'] = false;
-              $_SESSION = [];
+        // HAPUS SESSION LOGOUT
+        $_SESSION['registerError'] = false;
+        $_SESSION = [];
 
-              // HANCURKAN SESSION
-              session_destroy();
-          } 
-
-      ?>
+        // HANCURKAN SESSION
+        session_destroy();
+    } ?>
 
   </body>
 

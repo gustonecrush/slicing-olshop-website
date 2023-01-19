@@ -89,7 +89,7 @@ if (!isset($_SESSION['login'])) {
 
             <img src="src/assets/logo_light.svg" style="width: 50px; margin: 20px auto 0 auto;" />
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/web-olshop/dashboard.php">
                 <!-- <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div> -->
@@ -101,7 +101,7 @@ if (!isset($_SESSION['login'])) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/web-olshop/index.php">
+                <a class="nav-link" href="/web-olshop/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Homepage</span></a>
             </li>

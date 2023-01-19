@@ -2,7 +2,7 @@
 
 // MELAKUKAN KONEKSI KE DATABASE
 // DENGAN MENGGUNAKAN FUNGSI mysqli_connect(localhost, usernameDB, passwordDB, namaDB)
-$conn = mysqli_connect('localhost', 'root', 'root', 'db_web_olshop');
+$conn = mysqli_connect('localhost', 'root', '', 'db_web_olshop');
 
 // FUNGSI YANG DIGUNAKAN UNTUK MELAKUKAN REGISTRASI
 function registrasi($data)
