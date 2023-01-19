@@ -27,14 +27,14 @@ session_start();
        // DAN TAMPILKAN PESAN BERIKUT JIKA USER BERHASIL LOGIN
         echo "
             <script>
-                            Swal.fire({
-                                title: 'Logout is success',
-                                text: 'Thanks for shopping!',
-                                icon: 'success',
-                                confirmButtonColor: '#1f1f1f'
-                            })
-                        </script>
-            ";
+                Swal.fire({
+                  title: 'Logout is success',
+                  text: 'Thanks for shopping!',
+                  icon: 'success',
+                  confirmButtonColor: '#1f1f1f'
+                })
+            </script>
+        ";
 
         // HAPUS SESSION LOGOUT
         $_SESSION['logoutIsSuccess'] = false;
@@ -207,5 +207,5 @@ session_start();
     ?>
 
   </body>
-  
+
 </html>
